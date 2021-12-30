@@ -1,7 +1,7 @@
-package com.gabrielmagalhaes.rentx.application.controllers.impl;
+package com.gabrielmagalhaes.rentx.presenter.api;
 
-import com.gabrielmagalhaes.rentx.application.controllers.SignUpController;
-import com.gabrielmagalhaes.rentx.domain.contracts.gateways.SignUpRequest;
+import com.gabrielmagalhaes.rentx.data.entities.SignUpRequest;
+import com.gabrielmagalhaes.rentx.presenter.SignUpController;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
