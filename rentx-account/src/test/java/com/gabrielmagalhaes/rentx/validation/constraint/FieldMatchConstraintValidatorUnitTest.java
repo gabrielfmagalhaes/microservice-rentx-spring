@@ -1,6 +1,5 @@
 package com.gabrielmagalhaes.rentx.validation.constraint;
 
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,7 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
-public class FieldMatchConstraintValidatorUnitSpec {
+public class FieldMatchConstraintValidatorUnitTest {
 
     private static Validator validator;
 
