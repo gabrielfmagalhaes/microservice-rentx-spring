@@ -1,5 +1,7 @@
 package com.gabrielmagalhaes.rentx.validation.constraint;
 
+import com.gabrielmagalhaes.rentx.validation.constraint.impl.FieldMatchValidator;
+
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import java.lang.annotation.Documented;

@@ -1,5 +1,6 @@
-package com.gabrielmagalhaes.rentx.validation.constraint;
+package com.gabrielmagalhaes.rentx.validation.constraint.impl;
 
+import com.gabrielmagalhaes.rentx.validation.constraint.FieldMatch;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.PropertyAccessorFactory;
 
