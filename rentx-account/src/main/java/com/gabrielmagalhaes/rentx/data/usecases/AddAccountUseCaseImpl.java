@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class AddAccountUseCaseImpl implements AddAccountUseCase {
 
-    public Mono<Void> add(Account account) {
+    public Mono<Account> add(Account account) {
         return Mono.empty();
     }
 }
