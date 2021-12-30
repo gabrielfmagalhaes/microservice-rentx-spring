@@ -24,7 +24,11 @@ public class FieldMatchConstraintValidatorUnitSpec {
     }
 
     PasswordStub makeValidPassword() {
-        return new PasswordStub("valid_password", "valid_password");
+        return new PasswordStub("any_password", "any_password");
+    }
+
+    PasswordStub makeInvalidPassword() {
+        return new PasswordStub("any_password", "wrong_password");
     }
 
     @Test
@@ -35,6 +39,15 @@ public class FieldMatchConstraintValidatorUnitSpec {
         assertEquals(constraintViolations.size(), 0);
     }
 
+    @Test
+    @DisplayName("should violate constraint when no matching fields")
+    void shouldViolateConstraintWhenNoEqualFields() {
+        Set<ConstraintViolation<PasswordStub>> constraintViolations = validator.validate(makeInvalidPassword());
+
+        assertEquals(constraintViolations.size(), 1);
+    }
+
+    @FieldMatch(first = "password", second = "passwordConfirmation", message = "password fields must match")
     private class PasswordStub {
         private final String password;
         private final String passwordConfirmation;
@@ -42,6 +55,14 @@ public class FieldMatchConstraintValidatorUnitSpec {
         PasswordStub(String password, String passwordConfirmation) {
             this.password = password;
             this.passwordConfirmation = passwordConfirmation;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public String getPasswordConfirmation() {
+            return passwordConfirmation;
         }
     }
 }
