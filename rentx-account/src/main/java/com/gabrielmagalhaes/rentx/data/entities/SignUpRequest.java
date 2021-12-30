@@ -1,4 +1,4 @@
-package com.gabrielmagalhaes.rentx.domain.contracts.gateways;
+package com.gabrielmagalhaes.rentx.data.entities;
 
 import lombok.*;
 
@@ -10,5 +10,13 @@ import javax.validation.constraints.NotBlank;
 public class SignUpRequest {
 
     @NotBlank
+    private String name;
+
+    @NotBlank
     private String email;
+
+    @NotBlank
+    private String password;
+
+    private boolean admin;
 }
