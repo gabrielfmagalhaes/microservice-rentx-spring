@@ -1,8 +1,8 @@
 package com.gabrielmagalhaes.rentx.presenter.api;
 
 import com.gabrielmagalhaes.rentx.core.usecases.AddAccountUseCase;
-import com.gabrielmagalhaes.rentx.data.entities.ApiResponse;
-import com.gabrielmagalhaes.rentx.data.entities.SignUpRequest;
+import com.gabrielmagalhaes.rentx.data.ports.rest.out.ApiResponse;
+import com.gabrielmagalhaes.rentx.data.ports.rest.in.SignUpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
