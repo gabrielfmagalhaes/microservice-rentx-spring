@@ -1,4 +1,4 @@
-package com.gabrielmagalhaes.rentx.application.controllers.impl;
+package com.gabrielmagalhaes.rentx.application.controllers.errors;
 
 import com.gabrielmagalhaes.rentx.application.helpers.HttpResponse;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 
 @RestControllerAdvice
-public class CustomExceptionHandler {
+public class ValidationExceptionHandler {
 
     @ExceptionHandler(WebExchangeBindException.class)
     public Mono<ResponseEntity> serverExceptionHandler(WebExchangeBindException e) {
