@@ -4,7 +4,6 @@ import com.gabrielmagalhaes.rentx.core.domain.Account;
 import com.gabrielmagalhaes.rentx.core.exceptions.EmailAlreadyUsedException;
 import com.gabrielmagalhaes.rentx.core.usecases.AddAccountUseCase;
 import com.gabrielmagalhaes.rentx.data.ports.rest.in.SignUpRequest;
-import com.gabrielmagalhaes.rentx.presenter.api.SignUpController;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +21,7 @@ import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @WebFluxTest(SignUpController.class)
-public class SignUpControllerImplUnitSpec {
+public class SignUpControllerImplIntegrationTest {
 
     @Autowired
     WebTestClient webTestClient;
