@@ -3,7 +3,7 @@ package com.gabrielmagalhaes.rentx.core.domain;
 import java.util.Objects;
 
 public class Account {
-
+    private Long id;
     private String name;
     private String email;
     private String password;
@@ -17,8 +17,31 @@ public class Account {
         this.admin = admin;
     }
 
+    public Account(Long id, String name, String email, boolean admin) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.admin = admin;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isAdmin() {
+        return admin;
     }
 
     @Override
@@ -26,11 +49,11 @@ public class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return admin == account.admin && Objects.equals(name, account.name) && Objects.equals(email, account.email) && Objects.equals(password, account.password);
+        return admin == account.admin && Objects.equals(id, account.id) && Objects.equals(name, account.name) && Objects.equals(email, account.email) && Objects.equals(password, account.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, email, password, admin);
+        return Objects.hash(id, name, email, password, admin);
     }
 }
