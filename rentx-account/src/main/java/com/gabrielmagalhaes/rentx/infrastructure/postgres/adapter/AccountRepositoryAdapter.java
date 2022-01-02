@@ -1,7 +1,9 @@
 package com.gabrielmagalhaes.rentx.infrastructure.postgres.adapter;
 
 import com.gabrielmagalhaes.rentx.core.domain.Account;
-import com.gabrielmagalhaes.rentx.data.ports.persistence.AccountRepositoryPort;
+import com.gabrielmagalhaes.rentx.data.ports.persistence.entity.AccountAdapter;
+import com.gabrielmagalhaes.rentx.data.ports.persistence.spi.AccountRepositoryPort;
+import com.gabrielmagalhaes.rentx.infrastructure.postgres.entity.PostgresAccount;
 import com.gabrielmagalhaes.rentx.infrastructure.postgres.repository.AccountRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
@@ -16,8 +18,8 @@ public class AccountRepositoryAdapter implements AccountRepositoryPort {
     }
 
     @Override
-    public Mono<Account> add(Account account) {
-        return null;
+    public Mono<Account> add(PostgresAccount account) {
+        return this.accountRepository.save(account).flatMap(AccountAdapter::toDomain);
     }
 
     @Override

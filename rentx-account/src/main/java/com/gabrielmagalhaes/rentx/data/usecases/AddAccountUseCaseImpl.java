@@ -3,7 +3,9 @@ package com.gabrielmagalhaes.rentx.data.usecases;
 import com.gabrielmagalhaes.rentx.core.domain.Account;
 import com.gabrielmagalhaes.rentx.core.exceptions.EmailAlreadyUsedException;
 import com.gabrielmagalhaes.rentx.core.usecases.AddAccountUseCase;
-import com.gabrielmagalhaes.rentx.data.ports.persistence.AccountRepositoryPort;
+import com.gabrielmagalhaes.rentx.data.ports.persistence.entity.AccountAdapter;
+import com.gabrielmagalhaes.rentx.data.ports.persistence.spi.AccountRepositoryPort;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -23,6 +25,10 @@ public class AddAccountUseCaseImpl implements AddAccountUseCase {
             throw new EmailAlreadyUsedException("email address already in use");
         }
 
-        return repository.add(account);
+        String encryptedPassword = new BCryptPasswordEncoder().encode(account.getPassword());
+
+        account.setPassword(encryptedPassword);
+
+        return repository.add(AccountAdapter.toPostgres(account));
     }
 }
